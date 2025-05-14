@@ -58,8 +58,8 @@ class Room(db.Model):
         room = None
         try:
             room = Room.query.get(id_entity)
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
         return room
 
 
@@ -126,8 +126,8 @@ class Teacher(db.Model):
         teacher = None
         try:
             teacher = Teacher.query.get(id_entity)
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
         return teacher
 
 
@@ -194,8 +194,8 @@ class Lesson(db.Model):
         lesson = None
         try:
             lesson = Lesson.query.get(id_entity)
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
         return lesson
 
 
@@ -249,8 +249,8 @@ class Group(db.Model):
         group = None
         try:
             group = Group.query.get(id_entity)
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
         return group
 
 
@@ -309,8 +309,8 @@ class ClassNumber(db.Model):
         number = None
         try:
             number = ClassNumber.query.get(id_entity)
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
         return number
 
 
@@ -392,8 +392,8 @@ class Scheduler(db.Model):
         scheduler = None
         try:
             scheduler = Scheduler.query.get(id_entity)
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
         return scheduler
 
     @staticmethod

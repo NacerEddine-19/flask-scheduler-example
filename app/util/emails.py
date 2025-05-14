@@ -1,11 +1,11 @@
 from flask_mail import Message
 from app import mail, app
-from app.decorators import async
+from app.decorators import async_decorator
 from flask import url_for, render_template
 from .security import generate_token
 
 
-@async
+@async_decorator
 def send_async_email(msg):
     with app.app_context():
         mail.send(msg)

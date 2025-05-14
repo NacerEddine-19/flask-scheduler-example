@@ -1,9 +1,9 @@
-from models import get_teachers, get_groups, get_lessons, get_rooms, get_class_numbers
+from . import models
 from flask_wtf import FlaskForm
 from wtforms import Field
 from wtforms.fields import StringField, DateField
 from wtforms.validators import DataRequired
-from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from wtforms_sqlalchemy.fields import QuerySelectField
 
 
 class RoomForm(FlaskForm):
@@ -34,7 +34,7 @@ class TeacherForm(FlaskForm):
 
 class LessonForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    teacher = QuerySelectField('Teacher', query_factory=get_teachers, allow_blank=False)
+    teacher = QuerySelectField('Teacher', query_factory=models.get_teachers, allow_blank=False)
 
     def get_dict(self):
         form_dict = self.__dict__
@@ -76,10 +76,10 @@ class ClassNumberForm(FlaskForm):
 
 class SchedulerForm(FlaskForm):
     date = DateField('Date', validators=[DataRequired()])
-    class_number = QuerySelectField('Class number', query_factory=get_class_numbers, allow_blank=False)
-    room = QuerySelectField('Room', query_factory=get_rooms, allow_blank=False)
-    lesson = QuerySelectField('Lesson', query_factory=get_lessons, allow_blank=False)
-    group = QuerySelectField('Group', query_factory=get_groups, allow_blank=False)
+    class_number = QuerySelectField('Class number', query_factory=models.get_class_numbers, allow_blank=False)
+    room = QuerySelectField('Room', query_factory=models.get_rooms, allow_blank=False)
+    lesson = QuerySelectField('Lesson', query_factory=models.get_lessons, allow_blank=False)
+    group = QuerySelectField('Group', query_factory=models.get_groups, allow_blank=False)
 
     def get_dict(self):
         form_dict = self.__dict__

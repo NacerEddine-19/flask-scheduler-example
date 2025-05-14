@@ -1,9 +1,11 @@
 from app.entities.models import get_groups
+from app.login.models import User
 from flask_wtf import FlaskForm
-from wtforms.fields import StringField, IntegerField, BooleanField, PasswordField
-from wtforms.validators import DataRequired, Email, EqualTo
-from wtforms.fields.html5 import EmailField
-from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
+from wtforms.fields import EmailField, IntegerField
+from wtforms.validators import DataRequired, Length, Email, Regexp, EqualTo, ValidationError
+from wtforms_sqlalchemy.fields import QuerySelectField
+from .. import db
 
 
 class UserForm(FlaskForm):
